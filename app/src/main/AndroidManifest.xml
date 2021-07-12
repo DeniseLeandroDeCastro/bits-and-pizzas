@@ -9,7 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activity.OrderActivity"></activity>
+
+        <activity
+            android:name=".ui.activity.OrderActivity"
+            android:label="@string/create_order">
+
+        </activity>
+
         <activity android:name=".ui.activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
