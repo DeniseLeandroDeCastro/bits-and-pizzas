@@ -7,12 +7,12 @@ import android.os.Bundle;
 
 import br.com.denise.bitsandpizzas.R;
 
-public class MainActivity extends AppCompatActivity {
+public class OrderActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_order);
 
         //Adicionando a toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
