@@ -5,4 +5,25 @@
     <string name="create_order">Create Order</string>
     <string name="create_order_title">Create Order</string>
     <string name="action_share">Compartilhar</string>
+
+    <!-- TopFragment -->
+    <string name="title_top">Top Fragment</string>
+
+    <!--Pizza Fragment-->
+    <string-array name="pizzas">
+        <item>Diavolo</item>
+        <item>Funghi</item>
+    </string-array>
+
+    <!--Pasta Fragment-->
+    <string-array name="pasta">
+        <item>Spaghetti Bolognese</item>
+        <item>Lasagne</item>
+    </string-array>
+
+    <!--Stores Fragment-->
+    <string-array name="stores">
+        <item>Suricatto</item>
+        <item>Cipó Brasil</item>
+    </string-array>
 </resources>
