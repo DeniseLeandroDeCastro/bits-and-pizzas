@@ -6,13 +6,24 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.ShareActionProvider;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.MenuItemCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+
+import com.google.android.material.tabs.TabLayout;
 
 import br.com.denise.bitsandpizzas.R;
+import br.com.denise.bitsandpizzas.ui.fragments.PastaFragment;
+import br.com.denise.bitsandpizzas.ui.fragments.PizzaFragment;
+import br.com.denise.bitsandpizzas.ui.fragments.StoresFragment;
+import br.com.denise.bitsandpizzas.ui.fragments.TopFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,10 +33,19 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         //Adicionando a toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        //Anexa o SectionsPagerAdapter ao ViewPager
+        SectionsPagerAdapter pagerAdapter =
+                new SectionsPagerAdapter(getSupportFragmentManager());
+        ViewPager pager = (ViewPager) findViewById(R.id.pager);
+        pager.setAdapter(pagerAdapter);
+
+        //Anexa o ViewPager ao TabLayout
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+        tabLayout.setupWithViewPager(pager);
     }
     //Adicionando o menu à barra de ferramentas
     @Override
@@ -37,15 +57,9 @@ public class MainActivity extends AppCompatActivity {
         setShareActionIntent("Quer se juntar a mim para uma pizza?");
         return super.onCreateOptionsMenu(menu);
     }
-    private void setShareActionIntent(String text) {
-        Intent intent = new Intent(Intent.ACTION_SEND);
-        intent.setType("text/plain");
-        intent.putExtra(Intent.EXTRA_TEXT, text);
-        shareActionProvider.setShareIntent(intent);
-    }
     //Ação da barra do app quando recebe um clique
     @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_create_order:
                 Intent intent = new Intent(this, OrderActivity.class);
@@ -53,6 +67,55 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
+        }
+    }
+    //Item de compartilhamento
+    private void setShareActionIntent(String text) {
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_TEXT, text);
+        shareActionProvider.setShareIntent(intent);
+    }
+    //O FragmentPagerAdapter trasnmite informações para o ViewPager
+    private class SectionsPagerAdapter extends FragmentPagerAdapter {
+
+        public SectionsPagerAdapter(FragmentManager fm) {
+            super(fm);
+        }
+        //Indica quantas páginas o ViewPager deve conter
+        @Override
+        public int getCount() {
+            return 4;
+        }
+        //Indica o fragmento que irá aparecer em cada página
+        @Override
+        public Fragment getItem(int position) {
+            switch(position) {
+                case 0:
+                    return new TopFragment();
+                case 1:
+                    return new PizzaFragment();
+                case 2:
+                    return new PastaFragment();
+                case 3:
+                    return new StoresFragment();
+            }
+            return null;
+        }
+        //Adiciona o texto às abas
+        @Override
+        public CharSequence getPageTitle(int position) {
+            switch(position) {
+                case 0:
+                    return getResources().getText(R.string.home_tab);
+                case 1:
+                    return getResources().getText(R.string.pizza_tab);
+                case 2:
+                    return getResources().getText(R.string.pasta_tab);
+                case 3:
+                    return getResources().getText(R.string.store_tab);
+            }
+            return null;
         }
     }
 }

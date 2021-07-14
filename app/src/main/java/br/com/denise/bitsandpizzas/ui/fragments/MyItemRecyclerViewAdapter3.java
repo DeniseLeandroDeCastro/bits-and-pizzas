@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import br.com.denise.bitsandpizzas.R;
 import br.com.denise.bitsandpizzas.ui.fragments.dummy.DummyContent.DummyItem;
 
 import java.util.List;
