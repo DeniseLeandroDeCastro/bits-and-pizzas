@@ -5,9 +5,19 @@
     <string name="create_order">Create Order</string>
     <string name="create_order_title">Create Order</string>
     <string name="action_share">Compartilhar</string>
+    <string name="order_name_hint">Por favor, digite seu nome</string>
+    <string name="order_details_hint">Por favor, faça seu pedido</string>
 
     <!-- TopFragment -->
     <string name="title_top">Top Fragment</string>
+    <string name="company_name">Bits and Pizzas</string>
+    <string name="restaurant_image">Imagem do Restaurante</string>
+    <string name="home_text">
+        Desde que abrimos nossas portas, Bits and Pizzas construiu sua reputação como
+        um dos melhores restaurantes ítalo-digitais da América.
+        Algumas pessoas acreditam que comer fora é estar com seus amigos e família.
+        Acreditamos que boa comida é melhor saboreada enquanto se olha para seu telefone.
+    </string>
 
     <!--Pizza Fragment-->
     <string-array name="pizzas">
