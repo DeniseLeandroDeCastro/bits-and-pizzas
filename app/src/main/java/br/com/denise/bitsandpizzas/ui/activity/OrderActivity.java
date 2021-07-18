@@ -24,7 +24,6 @@ public class OrderActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         //Adicionando o botão UP
         ActionBar actionBar = getSupportActionBar();
-        //actionBar.setDisplayHomeAsUpEnabled(true);
     }
     public void onClickDone(View view) {
         CharSequence text = "Seu pedido foi atualizado";

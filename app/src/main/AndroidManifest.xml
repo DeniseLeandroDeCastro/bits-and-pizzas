@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="br.com.denise.bitsandpizzas">
 
     <application
@@ -10,16 +9,23 @@
         android:roundIcon="@drawable/funghi"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity
+            android:name=".ui.activity.PastaDetailActivity"
+            android:parentActivityName=".ui.activity.MainActivity">
 
+        </activity>
+        <activity
+            android:name=".ui.activity.PizzaDetailActivity"
+            android:parentActivityName=".ui.activity.MainActivity">
+        </activity>
         <activity
             android:name=".ui.activity.OrderActivity"
             android:label="@string/create_order"
             android:parentActivityName=".ui.activity.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.activity.MainActivity"/>
+                android:value=".ui.activity.MainActivity" />
         </activity>
-
         <activity android:name=".ui.activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
